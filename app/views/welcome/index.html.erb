@@ -1,2 +1,48 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<header class="row">
+  <h1 class="span12">Help, I'm out of ideas!</h1>
+</header>
+<div class="row">
+  <div class="span12">
+    <p class="lead">You ever have that happen? You <em>just</em> learned about a new language that
+    you are just dying to try out but&hellip; What can you make? It should be fast, it should
+    be fun, and it should be something that's at least a bit challenging. But what?</p>
+
+    <p>And on the other side of the spectrum we have waking up one morning realising
+    that what the world <em>really</em> needs is&hellip; let's go with a webpage/app/whatever
+    that finds which theatres in the world is playing Phantom of the Opera right now.</p>
+
+    <p>This is my solution to this problem. I wanted to learn Ruby on Rails, so I wrote
+    this.</p>
+
+    <h2>System Specifications</h2>
+    <ul>
+      <li>Ability to add ideas/suggestions
+        <ul>
+          <li><del>Name of idea</del></li>
+          <li><del>Description/explanation of idea</del></li>
+          <li>Tags</li>
+          <li>Contributor (nickname, e-mail for gravatar)</li>
+          <li>Date added</li>
+        </ul>
+      </li>
+      <li>Ability to add comments to ideas (nickname, e-mail for gravatar)</li>
+      <li>Ability to +1 ideas</li>
+      <li>Ability to login/create user account, to be able to change ideas/comments</li>
+      <li>Ability to add solutions to ideas (url, language)</li>
+      <li>Search for ideas</li>
+      <li>List ideas by tags</li>
+      <li>Sort lists by most/least +1s, most/least comments, most/least solutions, alphabetical, date...</li>
+      <li><del>List on front page</del></li>
+      <li>Completelly responsive design</li>
+    </ul>
+
+    <h2>Ideas/suggestions</h2>
+    <dl>
+    <% @ideas.each do |idea| %>
+      <dt><%= link_to idea.name, idea %> <i class="icon-pencil"></i><%= link_to 'Edit', edit_idea_path(idea), class: 'visuallyhidden' %> <i class="icon-trash"></i><%= link_to 'Destroy', idea, confirm: 'Are you sure?', method: :delete %>(<%= idea.created_at %>)</dt>
+      <dd><%= idea.description %></dd>
+    <% end %>
+    </dl>
+  </div>
+</div>
+
