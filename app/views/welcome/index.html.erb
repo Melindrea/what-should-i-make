@@ -39,7 +39,7 @@
     <h2>Ideas/suggestions</h2>
     <dl>
     <% @ideas.each do |idea| %>
-      <dt><%= link_to idea.name, idea %> <i class="icon-pencil"></i><%= link_to 'Edit', edit_idea_path(idea), class: 'visuallyhidden' %> <i class="icon-trash"></i><%= link_to 'Destroy', idea, confirm: 'Are you sure?', method: :delete %>(<%= idea.created_at %>)</dt>
+      <dt><%= link_to idea.name, idea %> <%= link_to '<i class="icon-pencil"></i><span class="visuallyhidden">Edit</span>'.html_safe, edit_idea_path(idea) %> <i class="icon-trash"></i><%= link_to 'Delete', idea, confirm: 'Are you sure?', method: :delete, class: 'visuallyhidden' %>(<%= idea.created_at %>)</dt>
       <dd><%= idea.description %></dd>
     <% end %>
     </dl>

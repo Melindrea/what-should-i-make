@@ -1,4 +1,6 @@
 WhatShouldIMake::Application.routes.draw do
+  resources :users
+
   resources :ideas
 
   get "welcome/index"
